@@ -1,0 +1,33 @@
+<configuration>
+    <!-- Dosyaya Yazma Ayarları -->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>application.log</file>  <!-- Log dosyasının adı -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Konsola Yazmayı Engelleme -->
+    <!-- Konsol appender'ını tamamen kaldırın veya devre dışı bırakın -->
+    <!--
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    -->
+
+    <!-- Kendi ConsumerZek sınıfınızın logger'ını INFO seviyesine ayarlayın (isteğe bağlı) -->
+    <logger name="org.example.ConsumerZek" level="INFO" additivity="false">
+        <appender-ref ref="FILE"/> <!-- Sadece dosyaya yaz -->
+    </logger>
+
+    <!-- Kafka client logger'larını WARN seviyesine ayarlayın (isteğe bağlı) -->
+    <logger name="org.apache.kafka.clients" level="WARN" additivity="false">
+        <appender-ref ref="FILE"/> <!-- Sadece dosyaya yaz -->
+    </logger>
+
+    <root level="WARN">
+        <appender-ref ref="FILE"/> <!-- Sadece dosyaya yaz -->
+    </root>
+</configuration>
