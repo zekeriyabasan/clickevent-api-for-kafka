@@ -34,7 +34,7 @@ public class KafkaCustomProducer {
         producer = new KafkaProducer(config);
     }
 
-    public  void send (KafkaDataModel request){
+    public void send (KafkaDataModel request){
         ProducerRecord<String,KafkaDataModel> record = new ProducerRecord<String,KafkaDataModel>(yamlConfig.getTopic(),request);
         producer.send(record);
         producer.flush();

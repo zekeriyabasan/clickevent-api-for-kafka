@@ -1,6 +1,7 @@
 package com.commerce.clickevent.api;
 
 import com.commerce.clickevent.model.ClickEventRequest;
+import com.commerce.clickevent.model.ClickEventResponse;
 import com.commerce.clickevent.service.ProducerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -16,8 +17,8 @@ public class ClickEventController {
     ProducerService producerService;
 
     @PostMapping("/click")
-    ClickEventRequest clickEventRequest(@RequestBody ClickEventRequest request){
-        ClickEventRequest response = producerService.producer(request);
+    ClickEventResponse clickEventRequest(@RequestBody ClickEventRequest request){
+        ClickEventResponse response = producerService.producer(request);
         return  response;
     }
 }
