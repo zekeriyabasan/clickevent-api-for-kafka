@@ -1,0 +1,2 @@
+bootstrap_servers: 139.59.176.171:9092,178.128.43.132:9092
+topic: hardcoded_topic

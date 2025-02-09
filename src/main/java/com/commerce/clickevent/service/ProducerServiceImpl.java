@@ -1,6 +1,8 @@
 package com.commerce.clickevent.service;
 
 import com.commerce.clickevent.model.ClickEventRequest;
+import com.commerce.clickevent.model.KafkaDataModel;
+import mapper.KafkaRequestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -14,7 +16,8 @@ public class ProducerServiceImpl implements ProducerService{
 
     @Override
     public ClickEventRequest producer(ClickEventRequest request) {
-        kafkaCustomProducer.send(request);
+        KafkaDataModel mappedRequest = KafkaRequestMapper.MAPPER.ClickEventRequestToKafkaModel(request);
+        kafkaCustomProducer.send(mappedRequest);
         return request;
     }
 }

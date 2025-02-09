@@ -15,7 +15,7 @@ public class ClickEventController {
     @Qualifier("click")
     ProducerService producerService;
 
-    @PostMapping
+    @PostMapping("/click")
     ClickEventRequest clickEventRequest(@RequestBody ClickEventRequest request){
         ClickEventRequest response = producerService.producer(request);
         return  response;

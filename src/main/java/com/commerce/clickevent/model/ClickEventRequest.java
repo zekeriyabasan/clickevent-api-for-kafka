@@ -6,6 +6,9 @@ public class ClickEventRequest {
     private String deviceId;
     private String eventName;
 
+    public ClickEventRequest() {
+    }
+
     public ClickEventRequest(String city, String customerId, String deviceId, String eventName) {
         this.city = city;
         this.customerId = customerId;
