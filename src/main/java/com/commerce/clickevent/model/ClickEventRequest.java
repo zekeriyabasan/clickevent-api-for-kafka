@@ -1,12 +1,12 @@
 package com.commerce.clickevent.model;
 
-public class ClickEvent {
+public class ClickEventRequest {
     private String customerId;
     private String city;
     private String deviceId;
     private String eventName;
 
-    public ClickEvent(String city, String customerId, String deviceId, String eventName) {
+    public ClickEventRequest(String city, String customerId, String deviceId, String eventName) {
         this.city = city;
         this.customerId = customerId;
         this.deviceId = deviceId;
